@@ -17,12 +17,46 @@
 
 <h1>Map test</h1>
 <hr>
+<form id="logForm" th:action="@{/api/parser}" method="POST">
+    <textarea placeholder="Log" name="log"></textarea>
+    <button type="submit" id="refresh">Submit</button>
+</form>
+<hr>
 <div id="map" style="height: 1000px"></div>
+
+
 
 <script src="./js/map.js"></script>
 <script src="/js/utils.js"></script>
+
 <script>
-    L.marker(converterCoordenadas(357, 6466)).addTo(map);
+    document.getElementById('logForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Impede o envio normal do formulário
+
+        // Captura os dados do formulário
+        var formData = new FormData(this);
+
+        // Envia os dados do formulário usando a API Fetch
+        fetch(this.action, {
+            method: 'POST',
+            body: formData
+        }).then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            throw new Error('Request failed.');
+        }).then(data => {
+            console.log(data)
+            data.forEach(item => {
+                console.log(item.x);
+                console.log(item.z);
+                let marker = L.marker(converterCoordenadas(item.x, item.z)).addTo(map);
+                marker.bindPopup(item.information).openPopup();
+            });
+        }).catch(error => {
+            console.error(error);
+        });
+    });
 </script>
 </body>
 </html>
