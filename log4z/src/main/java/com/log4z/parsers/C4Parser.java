@@ -37,7 +37,7 @@ public class C4Parser {
                 parserC4DTO.setAction(action);
                 parserC4DTO.setItem(item);
                 parserC4DTO.setSteamId("76" + playerID);
-                parserC4DTO.setDate(DateConverter.stringToDate(dateTime));
+                parserC4DTO.setDate(DateConverter.normalizeDateString(dateTime));
                 parserC4DTO.setEventType(eventType);
                 parserC4DTO.setTarget(target);
                 parserC4DTO.setNickname(playerName);
@@ -45,7 +45,7 @@ public class C4Parser {
                 parserC4DTO.setY(Float.parseFloat(y));
                 parserC4DTO.setZ(Float.parseFloat(z));
 
-                parserC4DTO.ParseInformation();
+                parserC4DTO.ParseAll();
                 parserC4DTOS.add(parserC4DTO);
             }
         }

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="82" viewBox="0 0 50 82">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #940003;
+      }
+
+      .cls-1, .cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #670002;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #c5c5c5;
+      }
+
+      .cls-5 {
+        fill: #666742;
+      }
+
+      .cls-6 {
+        fill: #59593a;
+      }
+
+      .cls-7 {
+        fill: #5f5f5f;
+      }
+
+      .cls-8 {
+        fill: #525252;
+      }
+
+      .cls-9 {
+        fill: #6e0002;
+      }
+
+      .cls-10 {
+        fill: #242424;
+      }
+
+      .cls-11 {
+        fill: #454545;
+      }
+
+      .cls-12 {
+        fill: #4a4c32;
+      }
+
+      .cls-13 {
+        fill: #707149;
+      }
+
+      .cls-14 {
+        fill: #aeafac;
+      }
+    </style>
+  </defs>
+  <path id="Preenchimento_de_Cor_1" data-name="Preenchimento de Cor 1" class="cls-1" d="M3.126,26.445S0.4,0.092,24.783.08,46.91,24.091,46.91,24.091L24.783,82Z"/>
+  <path id="Preenchimento_de_Cor_3" data-name="Preenchimento de Cor 3" class="cls-2" d="M24.783,81.057L46.91,24.091s0.26-14-7.062-18.832S29.02,0.551,29.02.551L34.2,2.9S39.213,5.68,40.79,7.613,46.238,17.7,45.5,22.678s-7.062,20.244-7.062,20.244Z"/>
+  <path id="Preenchimento_de_Cor_2" data-name="Preenchimento de Cor 2" class="cls-3" d="M22.377,4.164c24.378-.58,25.692,29.044,5.65,33.9C16.54,40.843,5.034,27.505,8.724,16.4A18.97,18.97,0,0,1,18.14,5.576Zm2.405,76.893"/>
+  <path id="Preenchimento_de_Cor_4" data-name="Preenchimento de Cor 4" class="cls-4" d="M24.441,4.157S39.418,6.038,39.2,21.3s-14.283,17.14-14.283,17.14,17.448-.075,17.14-17.14S24.441,4.157,24.441,4.157Z"/>
+  <path id="Preenchimento_de_Cor_9" data-name="Preenchimento de Cor 9" class="cls-5" d="M11.18,21.7l1.045,0.975L37.307,20.31l-1.881-.766Z"/>
+  <path id="Preenchimento_de_Cor_7" data-name="Preenchimento de Cor 7" class="cls-6" d="M12.225,22.051l25.36-2.438,0.139-3.553L12.365,18.01Zm0,0.627-0.07,4.111,25.151-2.717,0.07-3.9Z"/>
+  <path id="Preenchimento_de_Cor_11" data-name="Preenchimento de Cor 11" class="cls-7" d="M19.541,20.031l0.7,0.488,11.147-.975-0.627-.7-10.938.906Z"/>
+  <path id="Preenchimento_de_Cor_12" data-name="Preenchimento de Cor 12" class="cls-8" d="M20.307,20.588l-0.07,4.6,10.938-1.045s0.129-.029.139-0.348,0.139-4.25.139-4.25l-11.078.906Z"/>
+  <path id="Preenchimento_de_Cor_13" data-name="Preenchimento de Cor 13" class="cls-9" d="M26.438,20.588v2.229l4.529-.348,0.07-2.3Z"/>
+  <path id="Preenchimento_de_Cor_14" data-name="Preenchimento de Cor 14" class="cls-10" d="M22.815,20.867a1.541,1.541,0,0,1,1.742,1.811,1.7,1.7,0,0,1-2.02,1.742,1.457,1.457,0,0,1-1.463-1.6A2.137,2.137,0,0,1,22.815,20.867Z"/>
+  <path id="Preenchimento_de_Cor_10" data-name="Preenchimento de Cor 10" class="cls-11" d="M20.168,25.187l-0.627-.627V20.031l0.766,0.488Z"/>
+  <path id="Preenchimento_de_Cor_6" data-name="Preenchimento de Cor 6" class="cls-12" d="M12.365,18.08l-0.139,4.041-1.184-1.254V16.756Zm-0.139,4.6L11.11,21.633l-0.07,3.9,1.115,1.324Z"/>
+  <path id="Preenchimento_de_Cor_5" data-name="Preenchimento de Cor 5" class="cls-13" d="M11.041,16.756l1.324,1.254,25.43-2.02L36.4,14.806Z"/>
+  <path id="Preenchimento_de_Cor_8" data-name="Preenchimento de Cor 8" class="cls-14" d="M14.733,16.478l0.836,1.254V26.58l2.856-.279V17.523l-1.045-1.254Zm17.7-.07-0.488,8.43,2.647-.279,0.418-8.36L33.2,15.015l-2.16.209Zm-9.336-.557,1.115,1.184,0.557,3-0.139,4.807L24,25.744l1.463-.07,0.7-.906,0.209-4.738-0.557-3.065-1.463-1.184Z"/>
+</svg>

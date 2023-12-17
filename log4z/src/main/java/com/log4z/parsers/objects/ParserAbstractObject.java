@@ -15,5 +15,7 @@ public abstract class ParserAbstractObject {
     public String steamId;
     public String nickname;
     public String information;
+    public String iconUrl;
+
 
 }

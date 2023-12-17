@@ -12,51 +12,149 @@
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+
 </head>
 <body>
 
-<h1>Map test</h1>
-<hr>
-<form id="logForm" th:action="@{/api/parser}" method="POST">
-    <textarea placeholder="Log" name="log"></textarea>
-    <button type="submit" id="refresh">Submit</button>
-</form>
-<hr>
-<div id="map" style="height: 1000px"></div>
+<div class="container-fluid header" style="margin: 0px">
+    <div class="row" style="width: 100%">
+        <div class="col-sm-2" style="text-align: center"><h1>Log4z</h1></div>
+        <div class="col-sm-10">Headers com ferramentas aqui</div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Log text</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <form class="logForm" id="logForm" th:action="@{/api/parser}" method="POST">
+                            <textarea placeholder="Log" name="log" id="logarea"></textarea>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="refresh">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row leftbar">
+        <!-- Header da direita -->
+        <div class="col-sm-2" style="padding: 0px">
+            <div class="container-fluid subheader leftbar-header" >
+                <div class="row">
+                    <div class="col">
+                        <button id="add" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">ADD</button>
+                    </div>
+                    <div class="col">
+                        <button id="reset" class="btn btn-danger">RESET</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="range" min="-1" max="-1" value="-1" id="slider">
+                </div>
+            </div>
+
+            <div class="row log-info">
+                <div class="col-sm-8">
+                    LOG #1
+                </div>
+                <div class="col-sm-4" style="padding: 0">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nOXVvy4EQRwH8CUUIlH4V10lCkIlClfxHP6UiiMqBS+gUXsMBS9xV9BIJOIBiFYIIZKPTDIXm42zd3ujEN9km5nN75P5zexslv37YBqbOMAO5pM1BcM4xpuvPKKeChjEWa54WiAijQLwjJVkQERuC8h1h/fqmKu60cqQCIQWNqogs2VIaF0EQg6rIKN4LyAvuMw9T7m59SrIGO50l1dMVgGaus/RbwOnGEoF3Bf26AbbGOgVaHUAmnF+BDOY6qk9EaiVAVnVYDmc/R/63ewXmMBDPOsn31yErb6AiGzFYhu5sfNkQAj2YsHV3FhYUUitPdZXsIgPXGAtrixc5VdJgHawH6H8t7CUpQ4WsBv/3+PJgewv5xN4x7zKV7PloAAAAABJRU5ErkJggg==">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAYklEQVR4nO2UwQmAMBAEU562raB9xAZmK4j4Ez9qPFDiDtx3B5ZkUzJfBZgllf0BU1T4eAyvvS3rLfEQ0ka7KKhqi09x1fLjkr+TPCDFk3mJX07mEiDONeL+oTwD3W2xaYYV83OCehdk88kAAAAASUVORK5CYII=">
+                </div>
+            </div>
+
+            <div class="row log-info">
+                <div class="col-sm-8">
+                    LOG #1
+                </div>
+                <div class="col-sm-4" style="padding: 0">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nOXVvy4EQRwH8CUUIlH4V10lCkIlClfxHP6UiiMqBS+gUXsMBS9xV9BIJOIBiFYIIZKPTDIXm42zd3ujEN9km5nN75P5zexslv37YBqbOMAO5pM1BcM4xpuvPKKeChjEWa54WiAijQLwjJVkQERuC8h1h/fqmKu60cqQCIQWNqogs2VIaF0EQg6rIKN4LyAvuMw9T7m59SrIGO50l1dMVgGaus/RbwOnGEoF3Bf26AbbGOgVaHUAmnF+BDOY6qk9EaiVAVnVYDmc/R/63ewXmMBDPOsn31yErb6AiGzFYhu5sfNkQAj2YsHV3FhYUUitPdZXsIgPXGAtrixc5VdJgHawH6H8t7CUpQ4WsBv/3+PJgewv5xN4x7zKV7PloAAAAABJRU5ErkJggg==">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAYklEQVR4nO2UwQmAMBAEU562raB9xAZmK4j4Ez9qPFDiDtx3B5ZkUzJfBZgllf0BU1T4eAyvvS3rLfEQ0ka7KKhqi09x1fLjkr+TPCDFk3mJX07mEiDONeL+oTwD3W2xaYYV83OCehdk88kAAAAASUVORK5CYII=">
+                </div>
+            </div>
+
+        </div>
 
 
 
-<script src="./js/map.js"></script>
-<script src="/js/utils.js"></script>
+        <div class="col-md-10">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/map.js"></script>
+<script src="/js/MarkerManager.js"></script>
+<script src="/js/Marker.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 <script>
-    document.getElementById('logForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Impede o envio normal do formulário
+    let markerManager = new MarkerManager(map)
 
-        // Captura os dados do formulário
-        var formData = new FormData(this);
+    document.getElementById('slider').addEventListener("input", function () {
+        markerManager.viewToIndex(this.value);
+    });
 
-        // Envia os dados do formulário usando a API Fetch
-        fetch(this.action, {
+    document.getElementById('refresh').addEventListener('click', function (e) {
+
+        let form = document.getElementById('logForm')
+
+        var formData = new FormData(form);
+
+        fetch("/api/parser", {
             method: 'POST',
             body: formData
         }).then(response => {
-            if(response.ok) {
+            if (response.ok) {
                 return response.json();
             }
             throw new Error('Request failed.');
         }).then(data => {
-            console.log(data)
+            document.getElementById("slider").max = data.length;
+
+
             data.forEach(item => {
-                console.log(item.x);
-                console.log(item.z);
-                let marker = L.marker(converterCoordenadas(item.x, item.z)).addTo(map);
-                marker.bindPopup(item.information).openPopup();
+                markerManager.addMarker(item.x, item.z, item.information, item.date, item.iconUrl)
             });
         }).catch(error => {
             console.error(error);
         });
     });
+
+    document.getElementById('reset').addEventListener('click', function () {
+        document.getElementById('slider').value = -1;
+        document.getElementById('slider').max = -1;
+        document.getElementById('logarea').value = '';
+        markerManager.deleteAllMarkers();
+    })
+
 </script>
 </body>
 </html>

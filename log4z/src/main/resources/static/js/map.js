@@ -8,8 +8,9 @@ var map = L.map('map', {
 
 
 // Configurações do tile layer mantidas iguais
-L.tileLayer('/images/{z}/{x}/{y}.jpeg', {
+L.tileLayer('http://localhost:8080/images/chernarus/{z}/{x}/{y}.jpeg', {
     maxZoom: 7,
+    minZoom: 1,
     noWrap: true,
     attribution: '&copy; <a href="http://www.log4z.com/">Log4Z</a>',
     bounds: [[-256, 0], [0, 256]]
