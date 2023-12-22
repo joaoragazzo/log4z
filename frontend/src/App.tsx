@@ -71,6 +71,7 @@ const App: React.FC = () => {
 
   const resetMarkers = () => {
     setMarkers([]);
+    setLogs([]);
   };
 
   const filteredMarkers = markers.filter(
