@@ -32,7 +32,7 @@ const LogForm: React.FC<Prop> = ({
           <TextArea
             value={textAreaValue}
             onChange={handleTextAreaChange}
-            rows={30}
+            rows={25}
           />
         </Form.Item>
         <Upload
