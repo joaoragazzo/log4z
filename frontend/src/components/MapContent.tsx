@@ -2,22 +2,10 @@ import React from "react";
 import L from "leaflet";
 import { Content } from "antd/es/layout/layout";
 import { MapContainer, TileLayer } from "react-leaflet";
-import { CreateMarkers } from "./Marker";
+import MarkerData from "./MarkerClass";
 
 interface LogsData {
   logId: number;
-}
-
-interface MarkerData {
-  logId: number;
-  x: number;
-  y: number;
-  z: number;
-  iconUrl: string;
-  date: Date;
-  steamId: number;
-  nickname: string;
-  information: string;
 }
 
 interface Prop {
@@ -25,7 +13,7 @@ interface Prop {
   logs: LogsData[];
 }
 
-const MapContent: React.FC<Prop> = ({ filteredMarkers, logs }) => {
+const MapContent: React.FC<Prop> = ({ filteredMarkers }) => {
   return (
     <Content>
       <MapContainer
@@ -49,17 +37,11 @@ const MapContent: React.FC<Prop> = ({ filteredMarkers, logs }) => {
           ]}
         />
 
-        {filteredMarkers.map((data, index) => (
-          <CreateMarkers
-            key={`marker-${data.date}-${index}`}
-            x={data.x}
-            y={data.z}
-            information={data.information}
-            iconURL={data.iconUrl}
-            date={data.date}
-            logId={logs.length}
-          />
-        ))}
+        {
+          filteredMarkers.map((data, index) => {
+            return data.createMarker(`${Date.now()}-{${index}}`);
+          })
+        }
       </MapContainer>
     </Content>
   );

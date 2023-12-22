@@ -9,18 +9,7 @@ import ControlPanel from "./components/ControlPanel";
 import MapContent from "./components/MapContent";
 import LogForm from "./components/LogForm";
 import { BreadCrumPath } from "./components/BreadcrumbPath";
-
-interface MarkerData {
-  logId: number;
-  x: number;
-  y: number;
-  z: number;
-  iconUrl: string;
-  date: Date;
-  steamId: number;
-  nickname: string;
-  information: string;
-}
+import MarkerData from "./components/MarkerClass";
 
 type NotificationType = "success" | "info" | "warning" | "error";
 
@@ -38,6 +27,8 @@ const App: React.FC = () => {
     maxDate: new Date(),
   });
   const [api, contextHolder] = notification.useNotification();
+  const [logId, setLogId] = useState(1);
+  
 
   const openNotificationWithIcon = (type: NotificationType, title: string, description: string) => {
     api[type]({
@@ -65,7 +56,8 @@ const App: React.FC = () => {
         );
 
         if (!isDuplicate) {
-          updatedMarkers.push(newMarker);
+          const newMarkerObject: MarkerData = new MarkerData(logId, newMarker.x, newMarker.y, newMarker.z, newMarker.iconUrl, newMarker.information, newMarker.date, newMarker.steamId, newMarker.nickname);
+          updatedMarkers.push(newMarkerObject);
         }
       });
 
@@ -116,10 +108,11 @@ const App: React.FC = () => {
       const data = await response.json();
 
       setTextAreaValue("");
-      setLogs((currentLogs) => [...currentLogs, { logId: logs.length + 1 }]);
+      setLogs((currentLogs) => [...currentLogs, { logId: logId}]);
       addMarkers(data);
       setIsModalOpen(false);
       openNotificationWithIcon("success", "Log recognized", "The log was recognized and successfully showed up into the map!");
+      setLogId(logId + 1);
     } catch (error) {
       openNotificationWithIcon("error", "A error happened", "Our server seems to be offline. Try again later!");
     }
@@ -142,10 +135,11 @@ const App: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const removeMarkersByLogId = (logIdToRemove: number) => {
+  const removeMarkersByLogId = (logIdToRemove: number) => { 
     setMarkers((currentMarkers) =>
       currentMarkers.filter((marker) => marker.logId !== logIdToRemove)
     );
+
     setLogs((currentLogs) =>
       currentLogs.filter((log) => log.logId !== logIdToRemove)
     );
