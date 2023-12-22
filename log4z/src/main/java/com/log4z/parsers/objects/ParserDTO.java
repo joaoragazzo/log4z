@@ -9,13 +9,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class ParserAbstractObject {
+public abstract class ParserDTO {
 
-    private float x, y, z;
+    public float x, y, z;
     public String steamId;
     public String nickname;
     public String information;
     public String iconUrl;
-
 
 }

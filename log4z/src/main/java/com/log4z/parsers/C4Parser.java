@@ -1,6 +1,6 @@
 package com.log4z.parsers;
 
-import com.log4z.parsers.objects.ParserC4DTO;
+import com.log4z.parsers.objects.ParserDTO;
 import com.log4z.utils.DateConverter;
 
 import java.util.ArrayList;
@@ -10,13 +10,13 @@ import java.util.regex.Pattern;
 
 public class C4Parser {
 
-    public static List<ParserC4DTO> Parse(String log) {
+    public static List<ParserDTO> Parse(String log) {
         String regex = "\\[(.*?)\\]\\s*\\[(.*?)\\]\\s*\\[(.*?)\\]\\s*(.*?)\\| (.*?), Position: <(.*?), (.*?), (.*?)>, Target: (.*?) \\| Player: (.*?) \\[76(.*?)\\]";
 
 
         Pattern pattern = Pattern.compile(regex);
         String[] lines = log.split("\n");
-        List<ParserC4DTO> parserC4DTOS = new ArrayList<>();
+        List<ParserDTO> parserC4DTOS = new ArrayList<>();
 
         for (String line : lines) {
             Matcher matcher = pattern.matcher(line);

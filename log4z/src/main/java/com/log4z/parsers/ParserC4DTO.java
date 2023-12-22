@@ -1,17 +1,17 @@
-package com.log4z.parsers.objects;
+package com.log4z.parsers;
 
+import com.log4z.parsers.objects.ParserDTO;
+import com.log4z.parsers.objects.ParserObjectInterface;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParserC4DTO extends ParserAbstractObject implements ParserObjectInterface {
+public class ParserC4DTO extends ParserDTO implements ParserObjectInterface {
 
     public String date;
     public String target;

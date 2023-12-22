@@ -2,9 +2,9 @@ package com.log4z.parsers.objects;
 
 public interface ParserObjectInterface {
 
-    public void ParseInformation();
+    void ParseInformation();
 
-    public void ParseIconURL();
+    void ParseIconURL();
 
-    public void ParseAll();
+    void ParseAll();
 }
