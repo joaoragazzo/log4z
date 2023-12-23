@@ -24,7 +24,8 @@ public class ParserService {
             new C4Parser(),
             new HacksawParser(),
             new AttachLockParser(),
-            new AccessLockParser()
+            new AccessLockParser(),
+            new GarageParser()
     );
 
     public Parser IdentifyRegex(String log) throws LogFormatNotRecognized {

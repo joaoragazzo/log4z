@@ -38,4 +38,12 @@ public class RegexBook {
     public static final String AccessLockHeader = "\\[\\d{2}-\\d{2}-\\d{4}]\\[\\d{2}\\.\\d{2}\\.\\d{2}] New Access Log File Created!";
     public static final String AccessLockBody = "\\[(\\d{2}):(\\d{2}):(\\d{2})\\] Player \\((.+)\\, (\\d+)\\)\\(<(\\d+\\.\\d+), (\\d+\\.\\d+), (\\d+\\.\\d+)>\\) (.*)!";
 
+    /*
+        Garage System
+    */
+
+    public static final String GarageHeader = ".* \\| \\[GarageLogger\\] startet! You can disable that in servers config json!";
+    public static final String GarageLocation = "(.*?) \\| \\[GarageSystem\\] ->  GarageMod_ParkingMachine Spawned on: <(.*?), (.*?), (.*?)>";
+    public static final String GarageParking = "(.*?) \\| Player: (.+?) with steam64ID< (.+?)> (Parked in|Parked out) :? ?(.*?) on position: <(.*?), (.*?), (.*?)>";
+
 }

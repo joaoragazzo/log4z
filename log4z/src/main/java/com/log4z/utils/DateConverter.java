@@ -11,7 +11,8 @@ import java.util.List;
 public class DateConverter {
     private static final List<DateTimeFormatter> FORMATS = Arrays.asList(
             DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm:ss"),
-            DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm")
+            DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm"),
+            DateTimeFormatter.ofPattern("yyyy:MM:dd:HH:mm:ss")
     );
 
     public static String normalizeDateString(String dateString) {
