@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { Layout, notification } from "antd";
 import Sider from "antd/es/layout/Sider";
 import "./styles/main.css";
-import { LogComponent } from "./components/LogComponent";
-import { HeaderContent } from "./components/HeaderContent";
-import ControlPanel from "./components/ControlPanel";
-import MapContent from "./components/MapContent";
-import LogForm from "./components/LogForm";
-import { BreadCrumPath } from "./components/BreadcrumbPath";
-import MarkerData from "./components/MarkerClass";
+import { LogComponent } from "./components/logviewer/LogComponent";
+import { HeaderContent } from "./components/logviewer/HeaderContent";
+import ControlPanel from "./components/logviewer/ControlPanel";
+import MapContent from "./components/logviewer/MapContent";
+import LogForm from "./components/logviewer/LogForm";
+import { BreadCrumPath } from "./components/logviewer/BreadcrumbPath";
+import MarkerData from "./components/logviewer/MarkerClass";
 
 type NotificationType = "success" | "info" | "warning" | "error";
 
@@ -17,7 +17,7 @@ interface LogsData {
   logId: number;
 }
 
-const App: React.FC = () => {
+const LogViewer: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [textAreaValue, setTextAreaValue] = useState("");
   const [markers, setMarkers] = useState<MarkerData[]>([]); // Estado para armazenar os marcadores
@@ -209,4 +209,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default LogViewer;
