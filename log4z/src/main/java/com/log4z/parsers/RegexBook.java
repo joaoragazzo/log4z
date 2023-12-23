@@ -2,8 +2,16 @@ package com.log4z.parsers;
 
 public class RegexBook {
 
+
+    /*
+        C4 Parsers
+    */
     public static final String C4Regex = "\\[(.*?)\\]\\s*\\[(.*?)\\]\\s*\\[(.*?)\\]\\s*(.*?)\\| (.*?), Position: <(.*?), (.*?), (.*?)>, Target: (.*?) \\| Player: (.*?) \\[76(.*?)\\]";
 
+
+    /*
+        Hacksaw parsers
+    */
 
     public static final String HacksawHeader = "\\[\\d{2}-\\d{2}-\\d{4}]\\[\\d{2}\\.\\d{2}\\.\\d{2}] New Raid Log File Created!";
 
