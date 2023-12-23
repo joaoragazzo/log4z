@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class HacksawParser implements Parser {
 
     private final Pattern patternHeader = Pattern.compile(RegexBook.HacksawHeader);
-    private final Pattern patternDate = Pattern.compile(RegexBook.defaultDateHeader);
+    private final Pattern patternDate = Pattern.compile(RegexBook.DefaultDateHeader);
     private final Pattern patternBody = Pattern.compile(RegexBook.HacksawBody);
     private final Pattern patternSuccess = Pattern.compile(RegexBook.HacksawBodySuccess);
 

@@ -6,7 +6,7 @@ public class RegexBook {
         Default header for logs
     */
 
-    public static final String defaultDateHeader = "\\[(\\d{2})-(\\d{2})-(\\d{4})\\].*";
+    public static final String DefaultDateHeader = "\\[(\\d{2})-(\\d{2})-(\\d{4})\\].*";
 
 
     /*
@@ -30,5 +30,12 @@ public class RegexBook {
 
     public static final String AttachLockHeader = "\\[\\d{2}-\\d{2}-\\d{4}]\\[\\d{2}\\.\\d{2}\\.\\d{2}] New Attach Log File Created!";
     public static final String AttachLockBody = "\\[(\\d{2}):(\\d{2}):(\\d{2})\\] Player \\((.+)\\, (\\d+)\\)\\(<(\\d+\\.\\d+), (\\d+\\.\\d+), (\\d+\\.\\d+)>\\) attached a lock!";
+
+    /*
+        Access lock
+    */
+
+    public static final String AccessLockHeader = "\\[\\d{2}-\\d{2}-\\d{4}]\\[\\d{2}\\.\\d{2}\\.\\d{2}] New Access Log File Created!";
+    public static final String AccessLockBody = "\\[(\\d{2}):(\\d{2}):(\\d{2})\\] Player \\((.+)\\, (\\d+)\\)\\(<(\\d+\\.\\d+), (\\d+\\.\\d+), (\\d+\\.\\d+)>\\) (.*)!";
 
 }
