@@ -94,6 +94,8 @@ const App: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
+      setTextAreaValue("");
+
       const response = await fetch("http://localhost:8080/api/parser", {
         method: "POST",
         headers: {
@@ -113,7 +115,7 @@ const App: React.FC = () => {
 
       const data = await response.json();
 
-      setTextAreaValue("");
+      
       setLogs((currentLogs) => [...currentLogs, { logId: logId}]);
       addMarkers(data);
       setIsModalOpen(false);
