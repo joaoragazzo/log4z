@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import { Layout, notification } from "antd";
 import Sider from "antd/es/layout/Sider";
 import "./styles/main.css";
-import { LogComponent } from "./components/logviewer/LogComponent";
-import { HeaderContent } from "./components/logviewer/HeaderContent";
-import ControlPanel from "./components/logviewer/ControlPanel";
-import MapContent from "./components/logviewer/MapContent";
-import LogForm from "./components/logviewer/LogForm";
-import { BreadCrumPath } from "./components/logviewer/BreadcrumbPath";
-import MarkerData from "./components/logviewer/MarkerClass";
+import { LogComponent } from "./components/home/logviewer/LogComponent";
+import { HeaderContent } from "./components/HeaderContent";
+import ControlPanel from "./components/home/logviewer/ControlPanel";
+import MapContent from "./components/home/logviewer/MapContent";
+import LogForm from "./components/home/logviewer/LogForm";
+import { BreadCrumPath } from "./components/BreadcrumbPath";
+import MarkerData from "./components/home/logviewer/MarkerClass";
 
 type NotificationType = "success" | "info" | "warning" | "error";
 
@@ -162,7 +162,7 @@ const LogViewer: React.FC = () => {
       <HeaderContent />
       <BreadCrumPath items={[
       {
-        title: <a href="">Home</a>,
+        title: <a href="/home">Home</a>,
       },
       {
         title: 'Log Viewer',
