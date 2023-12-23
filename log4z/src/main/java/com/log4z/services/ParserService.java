@@ -1,6 +1,7 @@
 package com.log4z.services;
 
 import com.log4z.exceptions.LogFormatNotRecognized;
+import com.log4z.parsers.AttachLockParser;
 import com.log4z.parsers.C4Parser;
 import com.log4z.parsers.HacksawParser;
 import com.log4z.parsers.Parser;
@@ -20,14 +21,20 @@ public class ParserService {
 
     private C4Parser c4Parser = new C4Parser();
     private HacksawParser hacksawParser = new HacksawParser();
+    private AttachLockParser attachLockParser = new AttachLockParser();
 
     public Parser IdentifyRegex(String log) throws LogFormatNotRecognized {
+
         if (c4Parser.check(log)) {
             return c4Parser;
         }
 
         if (hacksawParser.check(log)) {
             return hacksawParser;
+        }
+
+        if (attachLockParser.check(log)) {
+            return attachLockParser;
         }
 
         throw new LogFormatNotRecognized("This log format was not recognized.");

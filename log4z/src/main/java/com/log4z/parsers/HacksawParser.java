@@ -42,7 +42,6 @@ public class HacksawParser implements Parser {
             }
 
             else if(matcherSuccess.find()) {
-                System.out.println("entrou aqui 1");
                 String hour = matcherSuccess.group(1);
                 String minute = matcherSuccess.group(2);
                 String seconds = matcherSuccess.group(3);
@@ -61,7 +60,6 @@ public class HacksawParser implements Parser {
             }
 
             else if(matcherBody.find()) {
-                System.out.println("entrou aqui 2");
                 String hour = matcherBody.group(1);
                 String minute = matcherBody.group(2);
                 String seconds = matcherBody.group(3);
@@ -88,8 +86,6 @@ public class HacksawParser implements Parser {
     @Override
     public boolean check(String log) {
         String[] lines = log.split("\n");
-        System.out.println(lines[0]);
-        System.out.println(patternHeader.matcher(lines[0]).find());
         return patternHeader.matcher(lines[0]).find();
     }
 }
