@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParserC4DTO extends ParserDTO implements ParserDTOInterface {
+public class C4DTO extends ParserDTO implements ParserDTOInterface {
 
     public String target;
     public String item;

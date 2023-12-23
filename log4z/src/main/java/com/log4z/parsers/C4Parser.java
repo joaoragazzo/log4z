@@ -1,11 +1,9 @@
 package com.log4z.parsers;
 
-import com.log4z.parsers.dto.ParserC4DTO;
+import com.log4z.parsers.dto.C4DTO;
 import com.log4z.parsers.dto.ParserDTO;
 import com.log4z.utils.DateConverter;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -40,21 +38,21 @@ public class C4Parser implements Parser {
                 String playerName = matcher.group(10);
                 String playerID = matcher.group(11);
 
-                ParserC4DTO parserC4DTO = new ParserC4DTO();
+                C4DTO c4DTO = new C4DTO();
 
-                parserC4DTO.setAction(action);
-                parserC4DTO.setItem(item);
-                parserC4DTO.setSteamId("76" + playerID);
-                parserC4DTO.setDate(DateConverter.normalizeDateString(dateTime));
-                parserC4DTO.setEventType(eventType);
-                parserC4DTO.setTarget(target);
-                parserC4DTO.setNickname(playerName);
-                parserC4DTO.setX(Float.parseFloat(x));
-                parserC4DTO.setY(Float.parseFloat(y));
-                parserC4DTO.setZ(Float.parseFloat(z));
+                c4DTO.setAction(action);
+                c4DTO.setItem(item);
+                c4DTO.setSteamId("76" + playerID);
+                c4DTO.setDate(DateConverter.normalizeDateString(dateTime));
+                c4DTO.setEventType(eventType);
+                c4DTO.setTarget(target);
+                c4DTO.setNickname(playerName);
+                c4DTO.setX(Float.parseFloat(x));
+                c4DTO.setY(Float.parseFloat(y));
+                c4DTO.setZ(Float.parseFloat(z));
 
-                parserC4DTO.parseAll();
-                parserC4DTOS.add(parserC4DTO);
+                c4DTO.parseAll();
+                parserC4DTOS.add(c4DTO);
             }
         }
 
