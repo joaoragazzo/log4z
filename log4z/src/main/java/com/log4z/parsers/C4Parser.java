@@ -1,20 +1,28 @@
 package com.log4z.parsers;
 
-import com.log4z.parsers.objects.ParserDTO;
+import com.log4z.parsers.dto.ParserC4DTO;
+import com.log4z.parsers.dto.ParserDTO;
 import com.log4z.utils.DateConverter;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class C4Parser {
-
-    public static List<ParserDTO> Parse(String log) {
-        String regex = "\\[(.*?)\\]\\s*\\[(.*?)\\]\\s*\\[(.*?)\\]\\s*(.*?)\\| (.*?), Position: <(.*?), (.*?), (.*?)>, Target: (.*?) \\| Player: (.*?) \\[76(.*?)\\]";
 
 
-        Pattern pattern = Pattern.compile(regex);
+@Getter
+@Setter
+public class C4Parser implements Parser {
+
+    private final Pattern pattern = Pattern.compile(RegexBook.C4Regex);
+
+    @Override
+    public List<ParserDTO> parse(String log) {
         String[] lines = log.split("\n");
         List<ParserDTO> parserC4DTOS = new ArrayList<>();
 
@@ -45,12 +53,17 @@ public class C4Parser {
                 parserC4DTO.setY(Float.parseFloat(y));
                 parserC4DTO.setZ(Float.parseFloat(z));
 
-                parserC4DTO.ParseAll();
+                parserC4DTO.parseAll();
                 parserC4DTOS.add(parserC4DTO);
             }
         }
 
-    return parserC4DTOS;
+        return parserC4DTOS;
     }
 
+    @Override
+    public boolean check(String log) {
+        String[] lines = log.split("\n");
+        return pattern.matcher(lines[0]).find();
+    }
 }

@@ -102,6 +102,11 @@ const App: React.FC = () => {
         body: JSON.stringify({ log: textAreaValue }),
       });
 
+      if (response.status === 404) {
+        openNotificationWithIcon("warning", "Log not recognized", "This log format was not recognized by our system.")
+        return;
+      }
+
       if (!response.ok) {
         throw new Error("request failed");
       }

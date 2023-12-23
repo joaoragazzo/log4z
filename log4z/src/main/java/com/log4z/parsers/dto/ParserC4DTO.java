@@ -1,7 +1,5 @@
-package com.log4z.parsers;
+package com.log4z.parsers.dto;
 
-import com.log4z.parsers.objects.ParserDTO;
-import com.log4z.parsers.objects.ParserObjectInterface;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,16 +9,15 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParserC4DTO extends ParserDTO implements ParserObjectInterface {
+public class ParserC4DTO extends ParserDTO implements ParserDTOInterface {
 
-    public String date;
     public String target;
     public String item;
     public String eventType;
     public String action;
 
     @Override
-    public void ParseInformation() {
+    public void parseInformation() {
         this.information = "<b>Player: </b>" + nickname +
                 "<br><b>SteamID: </b>" + steamId +
                 "<br><b>Date: </b>" + date +
@@ -29,7 +26,7 @@ public class ParserC4DTO extends ParserDTO implements ParserObjectInterface {
     }
 
     @Override
-    public void ParseIconURL() {
+    public void parseIconURL() {
         switch (eventType) {
             case "PLACED" ->
                     this.iconUrl = "/images/icons/c4/c4-green-icon.svg";
@@ -50,8 +47,8 @@ public class ParserC4DTO extends ParserDTO implements ParserObjectInterface {
     }
 
     @Override
-    public void ParseAll() {
-        this.ParseInformation();
-        this.ParseIconURL();
+    public void parseAll() {
+        this.parseInformation();
+        this.parseIconURL();
     }
 }

@@ -1,4 +1,4 @@
-package com.log4z.parsers.objects;
+package com.log4z.parsers.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,5 +16,6 @@ public abstract class ParserDTO {
     public String nickname;
     public String information;
     public String iconUrl;
+    public String date;
 
 }
