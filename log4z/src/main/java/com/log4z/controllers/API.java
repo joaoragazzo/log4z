@@ -3,6 +3,7 @@ package com.log4z.controllers;
 import com.log4z.exceptions.LogFormatNotRecognized;
 import com.log4z.dto.LogDTO;
 import com.log4z.parsers.Parser;
+import com.log4z.parsers.dto.ParserDTO;
 import com.log4z.services.ParserService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -31,7 +34,10 @@ public class API {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("");
         }
 
-        return ResponseEntity.ok(parser.parse(logDTO.getLog()));
+        List<ParserDTO> response = parser.parse(logDTO.getLog());
+
+
+        return ResponseEntity.ok(response);
     }
 
 
