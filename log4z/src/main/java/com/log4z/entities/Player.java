@@ -1,31 +1,32 @@
 package com.log4z.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SteamID {
+public class Player {
 
     @Id
     private Long steam64id;
 
     @OneToMany(mappedBy = "player")
-    private List<Action> actions;
+    private Set<Action> actions;
 
     @OneToMany(mappedBy = "player")
-    private List<Username> usernames;
+    private Set<Username> usernames;
+
+    @OneToMany(mappedBy = "kills")
+    private Set<Action> kills;
 
 
 }

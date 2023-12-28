@@ -1,8 +1,10 @@
 package com.log4z.repository;
 
-import com.log4z.entities.SteamID;
+import com.log4z.entities.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface SteamIDRepository extends JpaRepository<SteamID, Long> {
+@Repository
+public interface SteamIDRepository extends JpaRepository<Player, Long> {
 
 }

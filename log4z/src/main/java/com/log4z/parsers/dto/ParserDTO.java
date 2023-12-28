@@ -11,11 +11,12 @@ import lombok.Setter;
 @NoArgsConstructor
 public abstract class ParserDTO {
 
-    public float x, y, z;
+    public Float x, y, z;
     public String steamId;
     public String nickname;
     public String information;
     public String iconUrl;
     public String date;
+    public String kills;
 
 }
