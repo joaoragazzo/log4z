@@ -9,7 +9,6 @@ export const HeaderContent:React.FC = () => {
   return (
     <Header
       style={{
-        backgroundColor: "#082032",
         color: "white",
         textAlign: "center",
       }}

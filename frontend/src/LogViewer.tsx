@@ -173,7 +173,7 @@ const LogViewer: React.FC = () => {
       <Layout style={{ height: "100vh" }}>
         <Sider
           width={400}
-          style={{ backgroundColor: "#2C394B", padding: "15px" }}
+          style={{ padding: "15px" }}
         >
           <ControlPanel
             showModal={showModal}
@@ -186,7 +186,6 @@ const LogViewer: React.FC = () => {
           <Layout
             style={{
               padding: "15px",
-              backgroundColor: "#334756",
               borderRadius: "10px",
               marginBottom: "15px",
               overflow: "hidden",

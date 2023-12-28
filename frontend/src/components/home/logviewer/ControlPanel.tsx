@@ -32,7 +32,6 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
     <Layout
       style={{
         padding: "15px",
-        backgroundColor: "#334756",
         borderRadius: "10px",
         marginBottom: "15px",
       }}
