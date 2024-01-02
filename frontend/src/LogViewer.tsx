@@ -170,10 +170,10 @@ const LogViewer: React.FC = () => {
     ]} />
       
 
-      <Layout style={{ height: "100vh" }}>
+      <Layout style={{ height: "100vh"}}>
         <Sider
           width={400}
-          style={{ padding: "15px" }}
+          style={{ padding: "15px"}}
         >
           <ControlPanel
             showModal={showModal}

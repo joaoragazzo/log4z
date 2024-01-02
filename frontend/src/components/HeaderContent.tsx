@@ -1,15 +1,11 @@
-
 import { Header } from "antd/es/layout/layout";
 import React from 'react';
-
-
-
+import '../styles/main.css';
 
 export const HeaderContent:React.FC = () => {
   return (
-    <Header
+    <Header className="header"
       style={{
-        color: "white",
         textAlign: "center",
       }}
     >

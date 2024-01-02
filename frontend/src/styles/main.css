@@ -7,7 +7,7 @@
 }
 
 .leaflet-container {
-  background: #202b34;
+  background: #181818;
   outline: 0;
 }
 
@@ -28,13 +28,6 @@
     margin-bottom: '15px'
 }
 
-
-.custom-slider .ant-slider-rail {
-  background-color: #8b99c4; /* Cor do Fundo do Slider */
+.header {
+    background-color: rgb(0, 0, 0);
 }
-
-
-
-.custom-slider:hover .ant-slider-rail {
-    background-color: #59668c; /* Cor do Fundo do Slider */
-  }
