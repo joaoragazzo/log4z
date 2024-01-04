@@ -18,8 +18,7 @@ public class GarageParser implements Parser {
     @Override
     public List<ParserDTO> parse(String log) {
         String[] lines = log.split("\n");
-
-
+        
         List<ParserDTO> parsersDTOS = new ArrayList<>();
 
         for (String line : lines ) {
@@ -33,7 +32,6 @@ public class GarageParser implements Parser {
             }
 
             if (matcherLocation.find()) {
-                garageDTO.setDate(DateConverter.normalizeDateString(matcherLocation.group(1)));
                 garageDTO.setNickname("World");
                 garageDTO.setSteamId("None");
                 garageDTO.setX(Float.parseFloat(matcherLocation.group(2)));
@@ -41,12 +39,9 @@ public class GarageParser implements Parser {
                 garageDTO.setZ(Float.parseFloat(matcherLocation.group(4)));
                 garageDTO.setVehicle("None");
                 garageDTO.setAction("Parking lot successfully spawned");
-                garageDTO.parseAll();
-                parsersDTOS.add(garageDTO);
             }
 
             else if (matcherBody.find()) {
-                garageDTO.setDate(DateConverter.normalizeDateString(matcherBody.group(1)));
                 garageDTO.setNickname(matcherBody.group(2));
                 garageDTO.setSteamId(matcherBody.group(3));
                 garageDTO.setAction(matcherBody.group(4));
@@ -54,12 +49,14 @@ public class GarageParser implements Parser {
                 garageDTO.setX(Float.parseFloat(matcherBody.group(6)));
                 garageDTO.setY(Float.parseFloat(matcherBody.group(7)));
                 garageDTO.setZ(Float.parseFloat(matcherBody.group(8)));
+            }
+
+            if (matcherBody.find() || matcherLocation.find()) {
+                garageDTO.setDate(DateConverter.normalizeDateString(matcherBody.group(1)));
                 garageDTO.parseAll();
                 parsersDTOS.add(garageDTO);
             }
         }
-
-
 
         return parsersDTOS;
     }
