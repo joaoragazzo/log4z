@@ -46,9 +46,5 @@ public class C4DTO extends ParserDTO implements ParserDTOInterface {
         }
     }
 
-    @Override
-    public void parseAll() {
-        this.parseInformation();
-        this.parseIconURL();
-    }
+
 }

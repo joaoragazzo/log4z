@@ -1,6 +1,6 @@
 package com.log4z.parsers.dto;
 
-public class AttachLockDTO extends ParserDTO implements ParserDTOInterface {
+public class AttachLockDTO extends ParserDTO {
 
 
     @Override
@@ -16,9 +16,4 @@ public class AttachLockDTO extends ParserDTO implements ParserDTOInterface {
         this.iconUrl = "/images/icons/lock/lock-green-icon.svg";
     }
 
-    @Override
-    public void parseAll() {
-        parseInformation();
-        parseIconURL();
-    }
 }

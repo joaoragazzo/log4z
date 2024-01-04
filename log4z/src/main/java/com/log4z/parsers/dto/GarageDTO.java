@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GarageDTO extends ParserDTO implements ParserDTOInterface {
+public class GarageDTO extends ParserDTO {
 
 
     public String action;
@@ -33,9 +33,4 @@ public class GarageDTO extends ParserDTO implements ParserDTOInterface {
         }
     }
 
-    @Override
-    public void parseAll() {
-        parseInformation();
-        parseIconURL();
-    }
 }

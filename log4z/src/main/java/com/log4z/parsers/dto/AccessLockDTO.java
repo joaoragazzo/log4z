@@ -1,6 +1,6 @@
 package com.log4z.parsers.dto;
 
-public class AccessLockDTO extends ParserDTO implements ParserDTOInterface {
+public class AccessLockDTO extends ParserDTO {
 
     public String action;
 
@@ -23,9 +23,4 @@ public class AccessLockDTO extends ParserDTO implements ParserDTOInterface {
         }
     }
 
-    @Override
-    public void parseAll() {
-        parseInformation();
-        parseIconURL();
-    }
 }

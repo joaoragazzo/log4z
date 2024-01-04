@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class HacksawDTO extends ParserDTO implements ParserDTOInterface {
+public class HacksawDTO extends ParserDTO {
 
     public String initialHp = "0";
     public String damageDone = "0";
@@ -37,9 +37,4 @@ public class HacksawDTO extends ParserDTO implements ParserDTOInterface {
 
     }
 
-    @Override
-    public void parseAll() {
-        this.parseInformation();
-        this.parseIconURL();
-    }
 }
