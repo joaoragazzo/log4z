@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class ParserDTO implements ParserDTOInterface {
+public abstract class ParserDTO {
 
     public Float x, y, z;
     public String steamId;
@@ -19,6 +19,9 @@ public abstract class ParserDTO implements ParserDTOInterface {
     public String date;
     public String kills;
 
+
+    public abstract void parseInformation();
+    public abstract void parseIconURL();
 
     public void parseAll() {
         this.parseInformation();
